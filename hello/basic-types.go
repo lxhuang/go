@@ -11,7 +11,7 @@ var (
 	z complex128 = cmplx.Sqrt(-5 + 12i)
 )
 
-func main() {
+func test() {
 	const f = "%T(%v)\n"
 	fmt.Printf(f, ToBe, ToBe)
 	fmt.Printf(f, MaxInt, MaxInt)
