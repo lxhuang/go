@@ -95,7 +95,10 @@ func main() {
 	}
 	log.Printf("Existed Files: %d\n", len(existed_files))
 
+	var category_progress = 0
 	for _, category := range categories {
+		category_progress++
+		fmt.Printf("Category progress: %d\n", category_progress)
 		tokens := strings.Split(category, "\t")
 		if len(tokens) == 0 {
 			log.Fatal("dzdp_business_next.go: Invalid line in Category.")
@@ -142,6 +145,8 @@ func main() {
 				continue
 			}
 			file.WriteFile(path.Join(FLAGS_nextpage_folder, dump_filename), content)
+
+			existed_files[dump_filename] = time.Now()
 
 			time.Sleep(time.Duration(rand.Intn(5) + 5) * time.Second)
 		}
